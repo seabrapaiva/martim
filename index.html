@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de Atividades</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .btn-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 15px;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Cores diferentes para cada botão para facilitar a distinção */
+        .aprender { background-color: #4CAF50; }
+        .miniteste { background-color: #2196F3; }
+        .teste { background-color: #FF9800; }
+        .desafios { background-color: #9C27B0; }
+
+        /* Efeito de hover (passar o mouse) */
+        .btn-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            filter: brightness(1.1);
+        }
+
+        .btn-link:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="flipcard.html" class="btn-link aprender">Aprender</a>
+        <a href="MiniTestePT_V5.html" class="btn-link miniteste">MiniTeste</a>
+        <a href="TestePT_1.html" class="btn-link teste">Teste</a>
+        <a href="desafio1.html" class="btn-link desafios">Desafios</a>
+    </div>
+
+</body>
+</html>
