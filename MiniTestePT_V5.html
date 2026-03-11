@@ -1,0 +1,261 @@
+<!-- teste1.html – Português 7.º ano -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Teste 1 - Português 7.º ano</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }
+    h1 { color: #333; }
+    fieldset { margin-bottom: 18px; }
+    legend { font-weight: bold; }
+    .resultado { margin-top: 20px; font-weight: bold; }
+    .erradas { margin-top: 10px; color: #b30000; }
+    .correta { color: #006600; }
+    .proximo { margin-top: 20px; display: none; }
+    button { padding: 8px 16px; }
+  </style>
+</head>
+<body>
+
+<h1>Mini Teste 1 - Português 7.º ano</h1>
+<p>Responde a todas as questões. No final, clica em <strong>Concluir Teste</strong>.</p>
+
+<form id="teste1">
+
+  <!-- 1. Verdadeiro/Falso -->
+  <fieldset>
+    <legend>1. Verdadeiro ou Falso</legend>
+    <p>A frase «Os alunos estudam muito.» está na 3.ª pessoa do plural.</p>
+    <label><input type="radio" name="q1" value="V"> Verdadeiro</label><br>
+    <label><input type="radio" name="q1" value="F"> Falso</label>
+    <input type="hidden" data-correct="V">
+  </fieldset>
+
+  <!-- 2. Verdadeiro/Falso -->
+  <fieldset>
+    <legend>2. Verdadeiro ou Falso</legend>
+    <p>O advérbio é uma palavra que pode modificar um verbo, um adjetivo ou outro advérbio.</p>
+    <label><input type="radio" name="q2" value="V"> Verdadeiro</label><br>
+    <label><input type="radio" name="q2" value="F"> Falso</label>
+    <input type="hidden" data-correct="V">
+  </fieldset>
+
+  <!-- 3. Verdadeiro/Falso -->
+  <fieldset>
+    <legend>3. Verdadeiro ou Falso</legend>
+    <p>Na frase «A Maria comprou um livro interessante», «interessante» é um substantivo.</p>
+    <label><input type="radio" name="q3" value="V"> Verdadeiro</label><br>
+    <label><input type="radio" name="q3" value="F"> Falso</label>
+    <input type="hidden" data-correct="F">
+  </fieldset>
+
+  <!-- 4. Escolha múltipla -->
+  <fieldset>
+    <legend>4. Escolha múltipla</legend>
+    <p>Em «O cão correu rapidamente», a palavra «rapidamente» é:</p>
+    <label><input type="radio" name="q4" value="a"> substantivo</label><br>
+    <label><input type="radio" name="q4" value="b"> adjetivo</label><br>
+    <label><input type="radio" name="q4" value="c"> advérbio</label><br>
+    <label><input type="radio" name="q4" value="d"> verbo</label>
+    <input type="hidden" data-correct="c">
+  </fieldset>
+
+  <!-- 5. Escolha múltipla -->
+  <fieldset>
+    <legend>5. Escolha múltipla</legend>
+    <p>Qual é o sujeito da frase «Os rapazes jogam futebol no recreio»?</p>
+    <label><input type="radio" name="q5" value="a"> futebol</label><br>
+    <label><input type="radio" name="q5" value="b"> Os rapazes</label><br>
+    <label><input type="radio" name="q5" value="c"> no recreio</label><br>
+    <label><input type="radio" name="q5" value="d"> jogam futebol</label>
+    <input type="hidden" data-correct="b">
+  </fieldset>
+
+  <!-- 6. Escolha múltipla -->
+  <fieldset>
+    <legend>6. Escolha múltipla</legend>
+    <p>Na frase «Ela escreveu uma carta longa», qual é o predicado?</p>
+    <label><input type="radio" name="q6" value="a"> Ela</label><br>
+    <label><input type="radio" name="q6" value="b"> escreveu uma carta longa</label><br>
+    <label><input type="radio" name="q6" value="c"> uma carta longa</label><br>
+    <label><input type="radio" name="q6" value="d"> longa</label>
+    <input type="hidden" data-correct="b">
+  </fieldset>
+
+  <!-- 7. Escolha múltipla -->
+  <fieldset>
+    <legend>7. Escolha múltipla</legend>
+    <p>Qual das seguintes frases é uma <strong>frase interrogativa</strong>?</p>
+    <label><input type="radio" name="q7" value="a"> Fecha a porta.</label><br>
+    <label><input type="radio" name="q7" value="b"> A porta está fechada.</label><br>
+    <label><input type="radio" name="q7" value="c"> Porque chegaste tão tarde?</label><br>
+    <label><input type="radio" name="q7" value="d"> Que belo dia!</label>
+    <input type="hidden" data-correct="c">
+  </fieldset>
+
+  <!-- 8. Resposta rápida -->
+  <fieldset>
+    <legend>8. Resposta rápida</legend>
+    <p>Indica um <strong>sinónimo</strong> de «feliz».</p>
+    <input type="text" name="q8" placeholder="Escreve um sinónimo">
+    <input type="hidden" data-correct="contente|alegre|satisfeito|radiante">
+  </fieldset>
+
+  <!-- 9. Resposta rápida -->
+  <fieldset>
+    <legend>9. Resposta rápida</legend>
+    <p>Indica um <strong>antónimo</strong> de «alto» (no sentido de estatura).</p>
+    <input type="text" name="q9" placeholder="Escreve um antónimo">
+    <input type="hidden" data-correct="baixo|pequeno">
+  </fieldset>
+
+  <!-- 10. Resposta rápida -->
+  <fieldset>
+    <legend>10. Resposta rápida</legend>
+    <p>Escreve o <strong>plural</strong> de «cão».</p>
+    <input type="text" name="q10" placeholder="Plural de cão">
+    <input type="hidden" data-correct="cães|caes">
+  </fieldset>
+
+  <!-- 11. Verdadeiro/Falso -->
+  <fieldset>
+    <legend>11. Verdadeiro ou Falso</legend>
+    <p>Na frase «Eles tinham estudado muito», o verbo está no pretérito mais-que-perfeito composto.</p>
+    <label><input type="radio" name="q11" value="V"> Verdadeiro</label><br>
+    <label><input type="radio" name="q11" value="F"> Falso</label>
+    <input type="hidden" data-correct="V">
+  </fieldset>
+
+  <!-- 12. Escolha múltipla -->
+  <fieldset>
+    <legend>12. Escolha múltipla</legend>
+    <p>Qual das opções apresenta apenas <strong>adjetivos</strong>?</p>
+    <label><input type="radio" name="q12" value="a"> casa, bonito, rápido</label><br>
+    <label><input type="radio" name="q12" value="b"> alto, inteligente, simpático</label><br>
+    <label><input type="radio" name="q12" value="c"> correr, falar, pensar</label><br>
+    <label><input type="radio" name="q12" value="d"> livro, mesa, cadeira</label>
+    <input type="hidden" data-correct="b">
+  </fieldset>
+
+  <!-- 13. Escolha múltipla -->
+  <fieldset>
+    <legend>13. Escolha múltipla</legend>
+    <p>Em «O Pedro e a Ana foram ao cinema», o núcleo do sujeito é:</p>
+    <label><input type="radio" name="q13" value="a"> Pedro</label><br>
+    <label><input type="radio" name="q13" value="b"> Ana</label><br>
+    <label><input type="radio" name="q13" value="c"> Pedro e Ana</label><br>
+    <label><input type="radio" name="q13" value="d"> foram</label>
+    <input type="hidden" data-correct="c">
+  </fieldset>
+
+  <!-- 14. Verdadeiro/Falso -->
+  <fieldset>
+    <legend>14. Verdadeiro ou Falso</legend>
+    <p>Os pronomes pessoais podem funcionar como sujeito de uma frase.</p>
+    <label><input type="radio" name="q14" value="V"> Verdadeiro</label><br>
+    <label><input type="radio" name="q14" value="F"> Falso</label>
+    <input type="hidden" data-correct="V">
+  </fieldset>
+
+  <!-- 15. Resposta rápida -->
+  <fieldset>
+    <legend>15. Resposta rápida</legend>
+    <p>Indica o <strong>tempo verbal</strong> do verbo em «Eu estudarei amanhã».</p>
+    <input type="text" name="q15" placeholder="Tempo verbal">
+    <input type="hidden" data-correct="futuro do indicativo|futuro simples do indicativo|futuro">
+  </fieldset>
+
+  <button type="button" onclick="corrigir()">Concluir Teste</button>
+</form>
+
+<div id="resultado" class="resultado"></div>
+<div id="erradas" class="erradas"></div>
+
+<div id="proximo" class="proximo">
+  <p class="correta">Parabéns! Acertaste mais de 60% das questões.</p>
+  <p><a href="MiniTestePT_V6.html">Ir para o Mini Teste seguinte</a></p>
+</div>
+
+<script>
+function normalizarTexto(txt) {
+  return txt
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+}
+
+function corrigir() {
+  const form = document.getElementById('teste1');
+  const fieldsets = form.querySelectorAll('fieldset');
+  let total = fieldsets.length;
+  let corretas = 0;
+  let erradasLista = [];
+
+  fieldsets.forEach((fs, index) => {
+    const hidden = fs.querySelector('input[type="hidden"][data-correct]');
+    const correta = hidden.getAttribute('data-correct');
+
+    // tenta radio
+    const radios = fs.querySelectorAll('input[type="radio"]');
+    let respondido = false;
+    let valor = "";
+
+    if (radios.length > 0) {
+      radios.forEach(r => {
+        if (r.checked) {
+          respondido = true;
+          valor = r.value;
+        }
+      });
+      if (!respondido) {
+        // não respondeu: conta como errada
+        erradasLista.push(index + 1);
+        return;
+      }
+      if (valor === correta) {
+        corretas++;
+      } else {
+        erradasLista.push(index + 1);
+      }
+    } else {
+      // resposta rápida (texto)
+      const txt = fs.querySelector('input[type="text"]');
+      const resposta = normalizarTexto(txt.value || "");
+      if (!resposta) {
+        erradasLista.push(index + 1);
+        return;
+      }
+      const possiveis = correta.split('|').map(c => normalizarTexto(c));
+      if (possiveis.includes(resposta)) {
+        corretas++;
+      } else {
+        erradasLista.push(index + 1);
+      }
+    }
+  });
+
+  const percent = Math.round((corretas / total) * 100);
+  const resultadoDiv = document.getElementById('resultado');
+  const erradasDiv = document.getElementById('erradas');
+  const proximoDiv = document.getElementById('proximo');
+
+  resultadoDiv.textContent = `Acertaste ${corretas} em ${total} questões (${percent}%).`;
+
+  if (erradasLista.length > 0) {
+    erradasDiv.textContent = "Questões incorretas: " + erradasLista.join(', ');
+  } else {
+    erradasDiv.textContent = "Todas as respostas estão corretas. Excelente!";
+  }
+
+  if (percent >= 60) {
+    proximoDiv.style.display = 'block';
+  } else {
+    proximoDiv.style.display = 'none';
+  }
+}
+</script>
+
+</body>
+</html>

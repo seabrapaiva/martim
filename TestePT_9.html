@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Português 7º Ano - Teste 9</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #f4f1ea; color: #2c3e50; padding: 20px; max-width: 800px; margin: auto; }
+        .container { background: white; padding: 30px; border-radius: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 1px solid #dcdde1; }
+        h1 { color: #c23616; text-align: center; text-transform: uppercase; border-bottom: 2px solid #c23616; padding-bottom: 10px; }
+        .question { margin-bottom: 20px; padding: 15px; border-bottom: 1px dashed #ccc; background: #fffdf9; }
+        .question p { font-weight: bold; margin-bottom: 10px; }
+        input[type="text"] { width: 100%; padding: 8px; border: 1px solid #bdc3c7; border-radius: 3px; }
+        button { background-color: #c23616; color: white; border: none; padding: 12px 25px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold; margin-top: 10px; }
+        #result { margin-top: 20px; padding: 20px; display: none; border-radius: 5px; font-weight: bold; text-align: center; }
+        .wrong-ans { color: #e84118; font-size: 0.85em; display: block; margin-top: 5px; font-style: italic; }
+        .next-link { display: none; margin-top: 20px; text-align: center; background: #44bd32; padding: 15px; border-radius: 5px; }
+        .next-link a { color: white; text-decoration: none; font-weight: bold; font-size: 1.1em; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Teste 9: Texto Dramático</h1>
+    <form id="quizForm">
+        <!-- V/F -->
+        <div class="question" id="q1">
+            <p>1. O texto dramático é escrito para ser representado. (V/F)</p>
+            <input type="text" id="ans1" placeholder="V ou F">
+        </div>
+        <div class="question" id="q2">
+            <p>2. As didascálias são as falas das personagens. (V/F)</p>
+            <input type="text" id="ans2" placeholder="V ou F">
+        </div>
+        <div class="question" id="q3">
+            <p>3. O "Aparte" é quando uma personagem fala para o público sem que as outras ouçam. (V/F)</p>
+            <input type="text" id="ans3" placeholder="V ou F">
+        </div>
+
+        <!-- Escolha Múltipla -->
+        <div class="question" id="q4">
+            <p>4. Como se chama o texto que indica os gestos ou o cenário (geralmente em itálico)?</p>
+            <input type="radio" name="q4" value="A"> Réplica<br>
+            <input type="radio" name="q4" value="B"> Didascália ou Indicação Cénica<br>
+            <input type="radio" name="q4" value="C"> Monólogo
+        </div>
+        <div class="question" id="q5">
+            <p>5. O que marca a mudança de uma CENA numa peça de teatro?</p>
+            <input type="radio" name="q5" value="A"> A mudança de cenário<br>
+            <input type="radio" name="q5" value="B"> A entrada ou saída de personagens<br>
+            <input type="radio" name="q5" value="C"> O intervalo
+        </div>
+        <div class="question" id="q6">
+            <p>6. Quando uma personagem fala sozinha em palco, está a fazer um:</p>
+            <input type="radio" name="q6" value="A"> Diálogo<br>
+            <input type="radio" name="q6" value="B"> Monólogo<br>
+            <input type="radio" name="q6" value="C"> Coro
+        </div>
+
+        <!-- Resposta Rápida -->
+        <div class="question" id="q7">
+            <p>7. Como se chama cada uma das intervenções de uma personagem?</p>
+            <input type="text" id="ans7" placeholder="R.........">
+        </div>
+        <div class="question" id="q8">
+            <p>8. Nome da unidade maior da peça de teatro (equivalente ao capítulo):</p>
+            <input type="text" id="ans8" placeholder="A.........">
+        </div>
+        <div class="question" id="q9">
+            <p>9. Quem escreve peças de teatro é o...?</p>
+            <input type="text" id="ans9" placeholder="D.........">
+        </div>
+        <div class="question" id="q10">
+            <p>10. Onde decorre a ação teatral?</p>
+            <input type="text" id="ans10" placeholder="P......... ou Palco">
+        </div>
+        <div class="question" id="q11">
+            <p>11. As didascálias aparecem normalmente entre que sinais de pontuação?</p>
+            <input type="text" id="ans11" placeholder="P.........">
+        </div>
+        <div class="question" id="q12">
+            <p>12. A lista de personagens aparece no início ou no fim do texto?</p>
+            <input type="text" id="ans12">
+        </div>
+        <div class="question" id="q13">
+            <p>13. Como se chama o conjunto de atores de uma peça?</p>
+            <input type="text" id="ans13" placeholder="E.........">
+        </div>
+        <div class="question" id="q14">
+            <p>14. O texto secundário é o mesmo que...?</p>
+            <input type="text" id="ans14">
+        </div>
+        <div class="question" id="q15">
+            <p>15. Quantas personagens falam num monólogo?</p>
+            <input type="text" id="ans15">
+        </div>
+
+        <button type="button" onclick="validate()">Validar Atuação</button>
+    </form>
+
+    <div id="result"></div>
+    <div id="nextBtn" class="next-link">
+        <a href="TestePT_10.html">Espetáculo! Avança para o Último Teste (Revisão Final) →</a>
+    </div>
+</div>
+
+<script>
+function validate() {
+    let score = 0;
+    const correct = {
+        ans1:"V", ans2:"F", ans3:"V", q4:"B", q5:"B", q6:"B",
+        ans7:"réplica", ans8:"ato", ans9:"dramaturgo", 
+        ans10:"palco", ans11:"parênteses", ans12:"início", 
+        ans13:"elenco", ans14:"didascália", ans15:"1"
+    };
+
+    document.querySelectorAll('.wrong-ans').forEach(e => e.remove());
+
+   .forEach(i => {
+        let val = document.getElementById('ans'+i).value.trim().toLowerCase();
+        let target = correct['ans'+i].toLowerCase();
+        
+        if(val === target || (i===7 && val==="replica") || (i===11 && val==="parenteses") || (i===14 && val==="didascalia") || (i===12 && val==="inicio")) score++;
+        else showErr('ans'+i, correct['ans'+i]);
+    });
+
+   .forEach(i => {
+        let val = document.querySelector('input[name="q'+i+'"]:checked')?.value;
+        if(val === correct['q'+i]) score++;
+        else showErr('q'+i, correct['q'+i]);
+    });
+
+    function showErr(id, right) {
+        let el = document.getElementById(id.includes('q') ? id : id.replace('ans','q'));
+        let span = document.createElement('span');
+        span.className = 'wrong-ans';
+        span.innerText = "Resposta certa: " + right;
+        el.appendChild(span);
+    }
+
+    let p = (score/15)*100;
+    let res = document.getElementById('result');
+    res.style.display = "block";
+    res.style.backgroundColor = p >= 60 ? "#d4edda" : "#f8d7da";
+    res.innerHTML = "Desempenho: " + p.toFixed(0) + "% (" + score + "/15)";
+    if(p >= 60) document.getElementById('nextBtn').style.display = "block";
+}
+</script>
+</body>
+</html>

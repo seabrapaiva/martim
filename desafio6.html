@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Desafio 6 – Oralidade</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+    h1 { margin-bottom: 5px; }
+    #info { margin-bottom: 15px; color: #555; }
+    #perguntaBox { border: 1px solid #ccc; border-radius: 8px; padding: 20px; max-width: 800px; margin: 0 auto 20px; }
+    #frase { font-style: italic; margin: 10px 0 15px; }
+    .opcaoBtn {
+      display: block;
+      margin: 6px auto;
+      padding: 8px 14px;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #888;
+      background: #f5f5f5;
+      cursor: pointer;
+      text-align: left;
+    }
+    .opcaoBtn:hover { background: #e8e8e8; }
+    .opcaoCerta { background: #c8f7c5 !important; border-color: #2ecc71 !important; }
+    .opcaoErrada { background: #f7c5c5 !important; border-color: #e74c3c !important; }
+    #cronometro { font-weight: bold; margin-bottom: 10px; }
+    #progresso { margin-bottom: 10px; }
+    #resultadoFinal { margin-top: 20px; font-weight: bold; white-space: pre-line; }
+    #btnProxima, #btnReiniciar {
+      padding: 8px 16px;
+      margin: 8px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+		a {
+			font-weight: bold;
+			font-size: 20px;
+		}
+    #btnProxima { background: #3498db; color: white; }
+    #btnProxima:disabled { background: #95a5a6; cursor: default; }
+    #btnReiniciar { background: #27ae60; color: white; }
+  </style>
+</head>
+<body>
+
+<h1>Desafio 6 – Oralidade</h1>
+<div id="info">4 perguntas aleatórias. Tens 60 segundos. Mostra que dominas a oralidade!</div>
+
+<div id="cronometro">Tempo: 60s</div>
+<div id="progresso"></div>
+
+<div id="perguntaBox">
+  <div id="textoPergunta"></div>
+  <div id="frase"></div>
+  <div id="opcoes"></div>
+</div>
+
+<button id="btnProxima" disabled>Próxima</button>
+<button id="btnReiniciar">Novo desafio</button>
+<br>
+&#8666; <button id="btnProxima" ><a href="desafio5.html">Orações Coordenadas e Subordinadas</a></button>
+
+<div id="resultadoFinal"></div>
+
+<script>
+const todasPerguntas = [
+  {
+    pergunta: "Qual é a marca de oralidade?",
+    frase: "Tipo… eu nem sabia!",
+    opcoes: ["Tipo…", "...nem…", "...eu…"],
+    correta: 0
+  },
+  {
+    pergunta: "Qual é a marca de informalidade?",
+    frase: "Então, pá… já viste isto?",
+    opcoes: ["pá...", "Então, pá…", "...isto?,"],
+    correta: 1
+  },
+  {
+    pergunta: "Qual é o registo formal?",
+    frase: "Cumprimentos cordiais a todos vós.",
+    opcoes: ["todos", "Cumprimentos cordiais.", "vós"],
+    correta: 1
+  },
+  {
+    pergunta: "Qual é a marca de hesitação?",
+    frase: "Ah… bem… não sei.",
+    opcoes: ["Ah… bem…", "não", "..não sei..."],
+    correta: 0
+  },
+  {
+    pergunta: "Qual é a marca de diálogo espontâneo?",
+    frase: "Então, estás a ver?",
+    opcoes: ["...estás a ver?", "Então...", "...estás…"],
+    correta: 1
+  },
+  {
+    pergunta: "Qual é a marca de coloquialidade?",
+    frase: "Rapaz, embora!",
+    opcoes: ["Rapaz", "...embora", "não tem"],
+    correta: 0
+  },
+  {
+    pergunta: "Qual é a marca de discurso direto?",
+    frase: "Ele disse: 'Vou já.'",
+    opcoes: ["Ele disse…", "Ele disse: 'Vou já.'", "Ele afirmou que iria."],
+    correta: 1
+  },
+  {
+    pergunta: "Qual é a marca de oralidade juvenil?",
+    frase: "Bro, calma.",
+    opcoes: ["não tem", "Bro, calma.", "calma..."],
+    correta: 1
+  },
+  {
+    pergunta: "Qual é a marca de registo cuidado?",
+    frase: "Solicito a vossa atenção.",
+    opcoes: ["a vossa", "Solicito", "...atenção..."],
+    correta: 1
+  },
+  {
+    pergunta: "Qual é a marca de discurso informal?",
+    frase: "Fixe, então vamos lá sair!",
+    opcoes: ["Fixe...", "...vamos lá sair!", "…então vamos…"],
+    correta: 0
+  }
+];
+
+let perguntasSelecionadas = [];
+let indiceAtual = 0;
+let respostasCertas = 0;
+let tempo = 60;
+let intervalo = null;
+let bloqueado = false;
+
+function baralhar(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function escolher4Perguntas() {
+  const copia = [...todasPerguntas];
+  baralhar(copia);
+  return copia.slice(0, 4);
+}
+
+function atualizarCronometro() {
+  document.getElementById('cronometro').textContent = `Tempo: ${tempo}s`;
+}
+
+function iniciarCronometro() {
+  clearInterval(intervalo);
+  tempo = 60;
+  atualizarCronometro();
+  intervalo = setInterval(() => {
+    tempo--;
+    atualizarCronometro();
+    if (tempo <= 0) {
+      tempo = 0;
+      atualizarCronometro();
+      clearInterval(intervalo);
+      terminarDesafio(true);
+    }
+  }, 1000);
+}
+
+function mostrarPergunta() {
+  const q = perguntasSelecionadas[indiceAtual];
+  document.getElementById('textoPergunta').textContent = q.pergunta;
+  document.getElementById('frase').textContent = `Exemplo: "${q.frase}"`;
+  document.getElementById('progresso').textContent =
+    `Pergunta ${indiceAtual + 1} de ${perguntasSelecionadas.length}`;
+  const opcoesDiv = document.getElementById('opcoes');
+  opcoesDiv.innerHTML = "";
+  bloqueado = false;
+  document.getElementById('btnProxima').disabled = true;
+
+  q.opcoes.forEach((op, idx) => {
+    const btn = document.createElement('button');
+    btn.textContent = String.fromCharCode(65 + idx) + ") " + op;
+    btn.className = "opcaoBtn";
+    btn.onclick = () => escolherOpcao(idx, btn);
+    opcoesDiv.appendChild(btn);
+  });
+}
+
+function escolherOpcao(indiceOpcao, botao) {
+  if (bloqueado) return;
+  bloqueado = true;
+  const q = perguntasSelecionadas[indiceAtual];
+  const opcoesBtns = document.querySelectorAll('.opcaoBtn');
+
+  opcoesBtns.forEach((b, i) => {
+    if (i === q.correta) {
+      b.classList.add('opcaoCerta');
+    }
+    if (i === indiceOpcao && i !== q.correta) {
+      b.classList.add('opcaoErrada');
+    }
+    b.disabled = true;
+  });
+
+  if (indiceOpcao === q.correta) {
+    respostasCertas++;
+  }
+
+  document.getElementById('btnProxima').disabled = false;
+}
+
+function proximaPergunta() {
+  indiceAtual++;
+  if (indiceAtual >= perguntasSelecionadas.length) {
+    terminarDesafio(false);
+  } else {
+    mostrarPergunta();
+  }
+}
+
+function terminarDesafio(porTempo) {
+  clearInterval(intervalo);
+  bloqueado = true;
+  document.getElementById('btnProxima').disabled = true;
+
+  const total = perguntasSelecionadas.length;
+  const percent = Math.round((respostasCertas / total) * 100);
+  let mensagem;
+
+  if (percent >= 90) {
+    mensagem = "Lendário! Dominas este tema!";
+  } else if (percent >= 70) {
+    mensagem = "Muito bom! Estás quase no topo!";
+  } else if (percent >= 50) {
+    mensagem = "Bom esforço! Tenta melhorar!";
+  } else {
+    mensagem = "Desafio falhado… tenta outra vez!";
+  }
+
+  let texto = `Resultado: ${respostasCertas} em ${total} (${percent}%).\n${mensagem}`;
+  if (porTempo) {
+    texto += "\n(O tempo acabou!)";
+  }
+
+  document.getElementById('resultadoFinal').textContent = texto;
+}
+
+function iniciarDesafio() {
+  perguntasSelecionadas = escolher4Perguntas();
+  indiceAtual = 0;
+  respostasCertas = 0;
+  document.getElementById('resultadoFinal').textContent = "";
+  mostrarPergunta();
+  iniciarCronometro();
+}
+
+document.getElementById('btnProxima').addEventListener('click', proximaPergunta);
+document.getElementById('btnReiniciar').addEventListener('click', iniciarDesafio);
+
+iniciarDesafio();
+</script>
+
+</body>
+</html>

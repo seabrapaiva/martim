@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Português 7º Ano - Teste 1</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #eef2f7; color: #333; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .question { margin-bottom: 20px; padding: 15px; border-left: 5px solid #3498db; background: #f9f9f9; border-radius: 0 8px 8px 0; }
+        .question p { font-weight: bold; margin-bottom: 10px; }
+        .options label { display: block; margin-bottom: 8px; cursor: pointer; }
+        input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background-color: #3498db; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: 0.3s; width: 100%; margin-top: 20px; }
+        button:hover { background-color: #2980b9; }
+        #result { margin-top: 20px; padding: 20px; display: none; border-radius: 8px; }
+        .wrong-ans { color: #e74c3c; font-weight: bold; font-size: 0.9em; display: block; margin-top: 5px; }
+        .next-link { display: none; margin-top: 20px; text-align: center; background: #27ae60; padding: 15px; border-radius: 8px; }
+        .next-link a { color: white; text-decoration: none; font-weight: bold; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Teste 1: Classes de Palavras</h1>
+    <form id="quizForm">
+        <!-- Verdadeiro ou Falso -->
+        <div class="question" id="q1">
+            <p>1. "Alcateia" é um nome coletivo de lobos. (V/F)</p>
+            <input type="text" id="ans1" placeholder="Responde V ou F">
+        </div>
+
+        <div class="question" id="q2">
+            <p>2. "Aqueles" é um pronome demonstrativo. (V/F)</p>
+            <input type="text" id="ans2" placeholder="Responde V ou F">
+        </div>
+
+        <div class="question" id="q3">
+            <p>3. Na frase "Ele deu-me o livro", a palavra "me" é um pronome pessoal. (V/F)</p>
+            <input type="text" id="ans3" placeholder="Responde V ou F">
+        </div>
+
+        <!-- Escolha Múltipla -->
+        <div class="question" id="q4">
+            <p>4. Qual é a classe da palavra "rapidamente"?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="A"> Adjetivo</label>
+                <label><input type="radio" name="q4" value="B"> Advérbio</label>
+                <label><input type="radio" name="q4" value="C"> Nome</label>
+            </div>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. Identifica o determinante na frase: "Esta caneta é azul."</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="A"> Esta</label>
+                <label><input type="radio" name="q5" value="B"> Caneta</label>
+                <label><input type="radio" name="q5" value="C"> Azul</label>
+            </div>
+        </div>
+
+        <div class="question" id="q6">
+            <p>6. Qual das palavras é um nome abstrato?</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="A"> Mesa</label>
+                <label><input type="radio" name="q6" value="B"> Amizade</label>
+                <label><input type="radio" name="q6" value="C"> Cão</label>
+            </div>
+        </div>
+
+        <div class="question" id="q7">
+            <p>7. Qual o plural de "capitão"?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="A"> Capitões</label>
+                <label><input type="radio" name="q7" value="B"> Capitães</label>
+                <label><input type="radio" name="q7" value="C"> Capitãos</label>
+            </div>
+        </div>
+
+        <div class="question" id="q8">
+            <p>8. "Ninguém" pertence a que classe?</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="A"> Pronome Indefinido</label>
+                <label><input type="radio" name="q8" value="B"> Pronome Pessoal</label>
+                <label><input type="radio" name="q8" value="C"> Determinante Possessivo</label>
+            </div>
+        </div>
+
+        <!-- Resposta Rápida -->
+        <div class="question" id="q9">
+            <p>9. Escreve o feminino de "ator":</p>
+            <input type="text" id="ans9">
+        </div>
+
+        <div class="question" id="q10">
+            <p>10. Escreve o coletivo de "peixes":</p>
+            <input type="text" id="ans10">
+        </div>
+
+        <div class="question" id="q11">
+            <p>11. Escreve o plural de "fácil":</p>
+            <input type="text" id="ans11">
+        </div>
+
+        <div class="question" id="q12">
+            <p>12. Qual o superlativo absoluto sintético de "fiel"?</p>
+            <input type="text" id="ans12">
+        </div>
+
+        <div class="question" id="q13">
+            <p>13. Identifica a classe de "terceiro":</p>
+            <input type="text" id="ans13" placeholder="Ex: Nome, Numeral...">
+        </div>
+
+        <div class="question" id="q14">
+            <p>14. Na frase "O meu cão foge", "meu" é um determinante...</p>
+            <input type="text" id="ans14" placeholder="Completa a classe">
+        </div>
+
+        <div class="question" id="q15">
+            <p>15. Escreve o plural de "gentil":</p>
+            <input type="text" id="ans15">
+        </div>
+
+        <button type="button" onclick="validate()">Concluir Teste</button>
+    </form>
+
+    <div id="result"></div>
+    <div id="nextBtn" class="next-link">
+        <a href="TestePT_2.html">Parabéns Martim! Clica aqui para próximo Teste</a>
+    </div>
+</div>
+
+<script>
+function validate() {
+    let score = 0;
+    const total = 15;
+    const feedback = document.getElementById('result');
+    const next = document.getElementById('nextBtn');
+    
+    // Respostas Corretas
+    const correct = {
+        ans1: "V", ans2: "V", ans3: "V", 
+        q4: "B", q5: "A", q6: "B", q7: "B", q8: "A",
+        ans9: "atriz", ans10: "cardume", ans11: "fáceis", 
+        ans12: "fidelíssimo", ans13: "numeral", ans14: "possessivo", ans15: "gentis"
+    };
+
+    // Limpar erros anteriores
+    document.querySelectorAll('.wrong-ans').forEach(e => e.remove());
+
+    // Verificar V/F e Resposta Rápida
+    [1,2,3,9,10,11,12,13,14,15].forEach(i => {
+        let val = document.getElementById('ans'+i).value.trim().toLowerCase();
+        let target = i <= 3 ? correct['ans'+i].toLowerCase() : correct['ans'+i];
+        if(val === target) { score++; } 
+        else { showErr('ans'+i, correct['ans'+i]); }
+    });
+
+    // Verificar Escolha Múltipla
+    [4,5,6,7,8].forEach(i => {
+        let val = document.querySelector('input[name="q'+i+'"]:checked')?.value;
+        if(val === correct['q'+i]) { score++; } 
+        else { showErr('q'+i, correct['q'+i]); }
+    });
+
+    function showErr(id, right) {
+        let el = document.getElementById(id.includes('q') ? id : id.replace('ans','q'));
+        let span = document.createElement('span');
+        span.className = 'wrong-ans';
+        span.innerText = "Errada! Resposta correta: " + right;
+        el.appendChild(span);
+    }
+
+    let percent = (score / total) * 100;
+    feedback.style.display = "block";
+    feedback.style.backgroundColor = percent >= 60 ? "#d4edda" : "#f8d7da";
+    feedback.innerHTML = "<strong>Resultado: " + score + " / " + total + " (" + percent.toFixed(0) + "%)</strong>";
+
+    if(percent >= 60) next.style.display = "block";
+    window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>

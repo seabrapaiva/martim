@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Português 7º Ano - Teste 6</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fdf2f2; color: #444; padding: 20px; max-width: 800px; margin: auto; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 8px solid #e74c3c; }
+        h1 { color: #c0392b; border-bottom: 2px solid #e74c3c; padding-bottom: 10px; }
+        .question { margin-bottom: 20px; padding: 15px; border-left: 5px solid #e74c3c; background: #fffafa; border-radius: 0 8px 8px 0; }
+        .question p { font-weight: bold; margin-bottom: 10px; }
+        input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #e74c3c; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold; }
+        #result { margin-top: 20px; padding: 20px; display: none; border-radius: 8px; font-weight: bold; }
+        .wrong-ans { color: #c0392b; font-size: 0.9em; display: block; margin-top: 5px; }
+        .next-link { display: none; margin-top: 20px; text-align: center; background: #27ae60; padding: 15px; border-radius: 8px; }
+        .next-link a { color: white; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Teste 6: Relações de Sentido (Semântica)</h1>
+    <form id="quizForm">
+        <!-- V/F -->
+        <div class="question" id="q1">
+            <p>1. Sinónimos são palavras com sentidos opostos. (V/F)</p>
+            <input type="text" id="ans1" placeholder="V ou F">
+        </div>
+        <div class="question" id="q2">
+            <p>2. "Flor" é um hiperónimo de "Rosa". (V/F)</p>
+            <input type="text" id="ans2" placeholder="V ou F">
+        </div>
+        <div class="question" id="q3">
+            <p>3. "Mão" é um holónimo de "Dedo". (V/F)</p>
+            <input type="text" id="ans3" placeholder="V ou F">
+        </div>
+
+        <!-- Escolha Múltipla -->
+        <div class="question" id="q4">
+            <p>4. Qual é o antónimo de "Efémero"?</p>
+            <input type="radio" name="q4" value="A"> Passageiro<br>
+            <input type="radio" name="q4" value="B"> Duradouro<br>
+            <input type="radio" name="q4" value="C"> Curto
+        </div>
+        <div class="question" id="q5">
+            <p>5. Se "Árvore" é o holónimo, qual é o seu merónimo?</p>
+            <input type="radio" name="q5" value="A"> Floresta<br>
+            <input type="radio" name="q5" value="B"> Ramo<br>
+            <input type="radio" name="q5" value="C"> Planta
+        </div>
+        <div class="question" id="q6">
+            <p>6. "Cão, Gato, Leão" são hipónimos de que hiperónimo?</p>
+            <input type="radio" name="q6" value="A"> Animais<br>
+            <input type="radio" name="q6" value="B"> Felinos<br>
+            <input type="radio" name="q6" value="C"> Estimação
+        </div>
+
+        <!-- Resposta Rápida -->
+        <div class="question" id="q7">
+            <p>7. Escreve um sinónimo de "Alegre":</p>
+            <input type="text" id="ans7">
+        </div>
+        <div class="question" id="q8">
+            <p>8. Escreve o antónimo de "Guerra":</p>
+            <input type="text" id="ans8">
+        </div>
+        <div class="question" id="q9">
+            <p>9. "Carro" é hipónimo de que palavra geral?</p>
+            <input type="text" id="ans9" placeholder="V.........">
+        </div>
+        <div class="question" id="q10">
+            <p>10. Como se chama a relação entre "Página" e "Livro"?</p>
+            <input type="text" id="ans10" placeholder="M......... / Holonímia">
+        </div>
+        <div class="question" id="q11">
+            <p>11. "Maçã" é hipónimo de...?</p>
+            <input type="text" id="ans11">
+        </div>
+        <div class="question" id="q12">
+            <p>12. Indica o holónimo de "Pedal":</p>
+            <input type="text" id="ans12" placeholder="B.........">
+        </div>
+        <div class="question" id="q13">
+            <p>13. Sinónimo de "Escutar":</p>
+            <input type="text" id="ans13">
+        </div>
+        <div class="question" id="q14">
+            <p>14. Antónimo de "Rico":</p>
+            <input type="text" id="ans14">
+        </div>
+        <div class="question" id="q15">
+            <p>15. "Fruta" é o ____________ de "Pêra". (Hiperónimo ou Hipónimo?)</p>
+            <input type="text" id="ans15">
+        </div>
+
+        <button type="button" onclick="validate()">Verificar Respostas</button>
+    </form>
+
+    <div id="result"></div>
+    <div id="nextBtn" class="next-link">
+        <a href="TestePT_7.html">Excelente vocabulário! Avança para o Teste 7 (Tipos de Frase e Pontuação) →</a>
+    </div>
+</div>
+
+<script>
+function validate() {
+    let score = 0;
+    const correct = {
+        ans1:"F", ans2:"V", ans3:"V", q4:"B", q5:"B", q6:"A",
+        ans7:"contente", ans8:"paz", ans9:"veículo", 
+        ans10:"meronímia", ans11:"fruta", ans12:"bicicleta", 
+        ans13:"ouvir", ans14:"pobre", ans15:"hiperónimo"
+    };
+
+    document.querySelectorAll('.wrong-ans').forEach(e => e.remove());
+
+   .forEach(i => {
+        let val = document.getElementById('ans'+i).value.trim().toLowerCase();
+        let target = correct['ans'+i].toLowerCase();
+        
+        // Aceitar sinónimos comuns para o exercício 7
+        if(i === 7 && (val === "feliz" || val === "contente" || val === "jubiloso")) val = "contente";
+        if(i === 9 && (val === "veiculo" || val === "meio de transporte")) val = "veículo";
+        if(i === 10 && val.includes("mero")) val = "meronímia";
+
+        if(val === target || (i===15 && val==="hiperonimo")) score++;
+        else showErr('ans'+i, correct['ans'+i]);
+    });
+
+   .forEach(i => {
+        let val = document.querySelector('input[name="q'+i+'"]:checked')?.value;
+        if(val === correct['q'+i]) score++;
+        else showErr('q'+i, correct['q'+i]);
+    });
+
+    function showErr(id, right) {
+        let el = document.getElementById(id.includes('q') ? id : id.replace('ans','q'));
+        let span = document.createElement('span');
+        span.className = 'wrong-ans';
+        span.innerText = "Resposta certa: " + right;
+        el.appendChild(span);
+    }
+
+    let p = (score/15)*100;
+    let res = document.getElementById('result');
+    res.style.display = "block";
+    res.style.backgroundColor = p >= 60 ? "#d4edda" : "#f8d7da";
+    res.innerHTML = "Resultado: " + p.toFixed(0) + "% (" + score + "/15)";
+    if(p >= 60) document.getElementById('nextBtn').style.display = "block";
+}
+</script>
+</body>
+</html>

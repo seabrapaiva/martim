@@ -1,0 +1,227 @@
+<!-- teste2.html – Português 7.º ano -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Teste 2 - Português 7.º ano</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }
+    h1 { color: #333; }
+    fieldset { margin-bottom: 18px; }
+    legend { font-weight: bold; }
+    .resultado { margin-top: 20px; font-weight: bold; }
+    .erradas { margin-top: 10px; color: #b30000; }
+    .correta { color: #006600; }
+    .proximo { margin-top: 20px; display: none; }
+    button { padding: 8px 16px; }
+  </style>
+</head>
+<body>
+
+<h1>Mini Teste 2 - Português 7.º ano</h1>
+<p>Responde a todas as questões e clica em <strong>Concluir Teste</strong>.</p>
+
+<form id="teste2">
+
+  <!-- 1 -->
+  <fieldset>
+    <legend>1. Verdadeiro ou Falso</legend>
+    <p>O predicado é sempre constituído por um verbo.</p>
+    <label><input type="radio" name="q1" value="V"> Verdadeiro</label><br>
+    <label><input type="radio" name="q1" value="F"> Falso</label>
+    <input type="hidden" data-correct="F">
+  </fieldset>
+
+  <!-- 2 -->
+  <fieldset>
+    <legend>2. Verdadeiro ou Falso</legend>
+    <p>Os advérbios podem indicar modo, tempo, lugar ou intensidade.</p>
+    <label><input type="radio" name="q2" value="V"> Verdadeiro</label><br>
+    <label><input type="radio" name="q2" value="F"> Falso</label>
+    <input type="hidden" data-correct="V">
+  </fieldset>
+
+  <!-- 3 -->
+  <fieldset>
+    <legend>3. Verdadeiro ou Falso</legend>
+    <p>O complemento direto responde à pergunta «a quem?».</p>
+    <label><input type="radio" name="q3" value="V"> Verdadeiro</label><br>
+    <label><input type="radio" name="q3" value="F"> Falso</label>
+    <input type="hidden" data-correct="F">
+  </fieldset>
+
+  <!-- 4 -->
+  <fieldset>
+    <legend>4. Escolha múltipla</legend>
+    <p>Qual das frases contém um verbo no pretérito perfeito?</p>
+    <label><input type="radio" name="q4" value="a"> Eu estudava muito.</label><br>
+    <label><input type="radio" name="q4" value="b"> Eu estudarei amanhã.</label><br>
+    <label><input type="radio" name="q4" value="c"> Eu estudei ontem.</label><br>
+    <label><input type="radio" name="q4" value="d"> Eu tenho estudado.</label>
+    <input type="hidden" data-correct="c">
+  </fieldset>
+
+  <!-- 5 -->
+  <fieldset>
+    <legend>5. Escolha múltipla</legend>
+    <p>Qual é o tipo de frase: «Sai imediatamente daqui!»?</p>
+    <label><input type="radio" name="q5" value="a"> Declarativa</label><br>
+    <label><input type="radio" name="q5" value="b"> Imperativa</label><br>
+    <label><input type="radio" name="q5" value="c"> Interrogativa</label><br>
+    <label><input type="radio" name="q5" value="d"> Exclamativa</label>
+    <input type="hidden" data-correct="b">
+  </fieldset>
+
+  <!-- 6 -->
+  <fieldset>
+    <legend>6. Escolha múltipla</legend>
+    <p>Qual das palavras é um adjetivo?</p>
+    <label><input type="radio" name="q6" value="a"> rapidamente</label><br>
+    <label><input type="radio" name="q6" value="b"> correr</label><br>
+    <label><input type="radio" name="q6" value="c"> feliz</label><br>
+    <label><input type="radio" name="q6" value="d"> mesa</label>
+    <input type="hidden" data-correct="c">
+  </fieldset>
+
+  <!-- 7 -->
+  <fieldset>
+    <legend>7. Escolha múltipla</legend>
+    <p>Em «A professora explicou a matéria aos alunos», qual é o complemento indireto?</p>
+    <label><input type="radio" name="q7" value="a"> a professora</label><br>
+    <label><input type="radio" name="q7" value="b"> explicou a matéria</label><br>
+    <label><input type="radio" name="q7" value="c"> a matéria</label><br>
+    <label><input type="radio" name="q7" value="d"> aos alunos</label>
+    <input type="hidden" data-correct="d">
+  </fieldset>
+
+  <!-- 8 -->
+  <fieldset>
+    <legend>8. Resposta rápida</legend>
+    <p>Indica um sinónimo de «rápido».</p>
+    <input type="text" name="q8">
+    <input type="hidden" data-correct="veloz|depressa|ligeiro">
+  </fieldset>
+
+  <!-- 9 -->
+  <fieldset>
+    <legend>9. Resposta rápida</legend>
+    <p>Indica o antónimo de «triste».</p>
+    <input type="text" name="q9">
+    <input type="hidden" data-correct="feliz|contente|alegre">
+  </fieldset>
+
+  <!-- 10 -->
+  <fieldset>
+    <legend>10. Resposta rápida</legend>
+    <p>Escreve o plural de «pão».</p>
+    <input type="text" name="q10">
+    <input type="hidden" data-correct="pães|paes">
+  </fieldset>
+
+  <!-- 11 -->
+  <fieldset>
+    <legend>11. Verdadeiro ou Falso</legend>
+    <p>Os pronomes demonstrativos indicam a posição de algo em relação às pessoas do discurso.</p>
+    <label><input type="radio" name="q11" value="V"> Verdadeiro</label><br>
+    <label><input type="radio" name="q11" value="F"> Falso</label>
+    <input type="hidden" data-correct="V">
+  </fieldset>
+
+  <!-- 12 -->
+  <fieldset>
+    <legend>12. Escolha múltipla</legend>
+    <p>Qual das opções apresenta apenas verbos?</p>
+    <label><input type="radio" name="q12" value="a"> correr, bonito, falar</label><br>
+    <label><input type="radio" name="q12" value="b"> correr, saltar, escrever</label><br>
+    <label><input type="radio" name="q12" value="c"> mesa, cadeira, livro</label><br>
+    <label><input type="radio" name="q12" value="d"> feliz, triste, alegre</label>
+    <input type="hidden" data-correct="b">
+  </fieldset>
+
+  <!-- 13 -->
+  <fieldset>
+    <legend>13. Escolha múltipla</legend>
+    <p>Qual é o sujeito da frase «Chegaram cedo os convidados»?</p>
+    <label><input type="radio" name="q13" value="a"> chegaram cedo</label><br>
+    <label><input type="radio" name="q13" value="b"> cedo</label><br>
+    <label><input type="radio" name="q13" value="c"> os convidados</label><br>
+    <label><input type="radio" name="q13" value="d"> chegaram</label>
+    <input type="hidden" data-correct="c">
+  </fieldset>
+
+  <!-- 14 -->
+  <fieldset>
+    <legend>14. Verdadeiro ou Falso</legend>
+    <p>O predicativo do sujeito atribui uma característica ao sujeito.</p>
+    <label><input type="radio" name="q14" value="V"> Verdadeiro</label><br>
+    <label><input type="radio" name="q14" value="F"> Falso</label>
+    <input type="hidden" data-correct="V">
+  </fieldset>
+
+  <!-- 15 -->
+  <fieldset>
+    <legend>15. Resposta rápida</legend>
+    <p>Indica o tempo verbal de «Eles tinham corrido».</p>
+    <input type="text" name="q15">
+    <input type="hidden" data-correct="pretérito mais-que-perfeito composto|mais-que-perfeito composto">
+  </fieldset>
+
+  <button type="button" onclick="corrigir()">Concluir Teste</button>
+</form>
+
+<div id="resultado" class="resultado"></div>
+<div id="erradas" class="erradas"></div>
+
+<div id="proximo" class="proximo">
+  <p class="correta">Muito bem! Obtiveste mais de 60%.</p>
+  <p><a href="MiniTestePT_V7.html">Ir para o Mini Teste seguinte</a></p>
+</div>
+
+<script>
+function normalizar(txt) {
+  return txt.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+}
+
+function corrigir() {
+  const form = document.getElementById('teste2');
+  const fieldsets = form.querySelectorAll('fieldset');
+  let total = fieldsets.length;
+  let corretas = 0;
+  let erradas = [];
+
+  fieldsets.forEach((fs, i) => {
+    const correta = fs.querySelector('input[type="hidden"]').dataset.correct;
+    const radios = fs.querySelectorAll('input[type="radio"]');
+
+    if (radios.length > 0) {
+      let marcado = [...radios].find(r => r.checked);
+      if (!marcado) { erradas.push(i+1); return; }
+      if (marcado.value === correta) corretas++;
+      else erradas.push(i+1);
+    } else {
+      const txt = normalizar(fs.querySelector('input[type="text"]').value);
+      if (!txt) { erradas.push(i+1); return; }
+      const possiveis = correta.split('|').map(c => normalizar(c));
+      if (possiveis.includes(txt)) corretas++;
+      else erradas.push(i+1);
+    }
+  });
+
+  const percent = Math.round((corretas / total) * 100);
+  document.getElementById('resultado').textContent =
+    `Acertaste ${corretas} em ${total} questões (${percent}%).`;
+
+  if (erradas.length > 0)
+    document.getElementById('erradas').textContent =
+      "Questões incorretas: " + erradas.join(', ');
+  else
+    document.getElementById('erradas').textContent =
+      "Todas corretas! Excelente!";
+
+  if (percent >= 60)
+    document.getElementById('proximo').style.display = 'block';
+}
+</script>
+
+</body>
+</html>

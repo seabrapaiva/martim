@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Português 7º Ano - Teste 4</title>
+    <style>
+        body { font-family: 'Trebuchet MS', sans-serif; background-color: #fff5e6; color: #4a4a4a; padding: 20px; max-width: 800px; margin: auto; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid #ffcc80; }
+        h1 { color: #e67e22; border-bottom: 3px solid #e67e22; padding-bottom: 10px; }
+        .question { margin-bottom: 20px; padding: 15px; border-left: 5px solid #e67e22; background: #fffcf9; border-radius: 0 8px 8px 0; }
+        .question p { font-weight: bold; margin-bottom: 10px; }
+        input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #e67e22; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold; }
+        #result { margin-top: 20px; padding: 20px; display: none; border-radius: 8px; font-weight: bold; }
+        .wrong-ans { color: #c0392b; font-size: 0.9em; display: block; margin-top: 5px; }
+        .next-link { display: none; margin-top: 20px; text-align: center; background: #27ae60; padding: 15px; border-radius: 8px; }
+        .next-link a { color: white; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Teste 4: Texto Narrativo e Recursos Expressivos</h1>
+    <form id="quizForm">
+        <!-- V/F -->
+        <div class="question" id="q1">
+            <p>1. Um narrador participante fala na 3ª pessoa. (V/F)</p>
+            <input type="text" id="ans1" placeholder="V ou F">
+        </div>
+        <div class="question" id="q2">
+            <p>2. A metáfora é uma comparação sem o termo comparativo (como). (V/F)</p>
+            <input type="text" id="ans2" placeholder="V ou F">
+        </div>
+        <div class="question" id="q3">
+            <p>3. O espaço físico refere-se ao lugar onde a ação decorre. (V/F)</p>
+            <input type="text" id="ans3" placeholder="V ou F">
+        </div>
+
+        <!-- Escolha Múltipla -->
+        <div class="question" id="q4">
+            <p>4. "As nuvens choravam de tristeza". Que recurso expressivo é este?</p>
+            <input type="radio" name="q4" value="A"> Personificação<br>
+            <input type="radio" name="q4" value="B"> Hipérbole<br>
+            <input type="radio" name="q4" value="C"> Aliteração
+        </div>
+        <div class="question" id="q5">
+            <p>5. Qual é o recurso em: "Ele correu mais rápido que a luz"?</p>
+            <input type="radio" name="q5" value="A"> Comparação<br>
+            <input type="radio" name="q5" value="B"> Hipérbole (Exagero)<br>
+            <input type="radio" name="q5" value="C"> Enumeração
+        </div>
+        <div class="question" id="q6">
+            <p>6. O que caracteriza o "Momento de Rutura" numa narrativa?</p>
+            <input type="radio" name="q6" value="A"> O final da história<br>
+            <input type="radio" name="q6" value="B"> O acontecimento que altera a situação inicial<br>
+            <input type="radio" name="q6" value="C"> A descrição das personagens
+        </div>
+
+        <!-- Resposta Rápida -->
+        <div class="question" id="q7">
+            <p>7. Como se chama a personagem mais importante da história?</p>
+            <input type="text" id="ans7" placeholder="P.........">
+        </div>
+        <div class="question" id="q8">
+            <p>8. Nome do recurso expressivo: "Branca como a neve":</p>
+            <input type="text" id="ans8">
+        </div>
+        <div class="question" id="q9">
+            <p>9. Qual o tipo de narrador que sabe tudo (pensamentos e sentimentos)?</p>
+            <input type="text" id="ans9" placeholder="O.........">
+        </div>
+        <div class="question" id="q10">
+            <p>10. Como se chama a sequência de acontecimentos de uma história?</p>
+            <input type="text" id="ans10" placeholder="Açao ou I......">
+        </div>
+        <div class="question" id="q11">
+            <p>11. Recurso expressivo: "O som suave do sino":</p>
+            <input type="text" id="ans11" placeholder="A.........">
+        </div>
+        <div class="question" id="q12">
+            <p>12. Quando o tempo da narrativa volta ao passado, chama-se...?</p>
+            <input type="text" id="ans12" placeholder="F.........">
+        </div>
+        <div class="question" id="q13">
+            <p>13. Nome das personagens com pouca relevância na ação:</p>
+            <input type="text" id="ans13" placeholder="S.........">
+        </div>
+        <div class="question" id="q14">
+            <p>14. "O mar ruge de raiva". Nome do recurso:</p>
+            <input type="text" id="ans14">
+        </div>
+        <div class="question" id="q15">
+            <p>15. A parte final da narrativa onde se resolve o conflito chama-se...?</p>
+            <input type="text" id="ans15" placeholder="D.........">
+        </div>
+
+        <button type="button" onclick="validate()">Submeter Respostas</button>
+    </form>
+
+    <div id="result"></div>
+    <div id="nextBtn" class="next-link">
+        <a href="TestePT_5.html">Parabéns Martim! Clica aqui para próximo Teste</a>
+    </div>
+</div>
+
+<script>
+function validate() {
+    let score = 0;
+    const correct = {
+        ans1:"F", ans2:"V", ans3:"V", q4:"A", q5:"B", q6:"B",
+        ans7:"protagonista", ans8:"comparação", ans9:"omniscente", 
+        ans10:"intriga", ans11:"aliteração", ans12:"flashback", 
+        ans13:"secundárias", ans14:"personificação", ans15:"desfecho"
+    };
+
+    document.querySelectorAll('.wrong-ans').forEach(e => e.remove());
+
+   .forEach(i => {
+        let val = document.getElementById('ans'+i).value.trim().toLowerCase();
+        let target = correct['ans'+i].toLowerCase();
+        // Aceitar variações comuns
+        if(i === 9 && val.includes("onisciente")) val = "omniscente";
+        if(i === 10 && val === "ação") val = "intriga"; 
+
+        if(val === target || (i===10 && val==="ação") || (i===10 && val==="acao")) score++;
+        else showErr('ans'+i, correct['ans'+i]);
+    });
+
+   .forEach(i => {
+        let val = document.querySelector('input[name="q'+i+'"]:checked')?.value;
+        if(val === correct['q'+i]) score++;
+        else showErr('q'+i, correct['q'+i]);
+    });
+
+    function showErr(id, right) {
+        let el = document.getElementById(id.includes('q') ? id : id.replace('ans','q'));
+        let span = document.createElement('span');
+        span.className = 'wrong-ans';
+        span.innerText = "Resposta certa: " + right;
+        el.appendChild(span);
+    }
+
+    let p = (score/15)*100;
+    let res = document.getElementById('result');
+    res.style.display = "block";
+    res.style.backgroundColor = p >= 60 ? "#d4edda" : "#f8d7da";
+    res.innerHTML = "Pontuação: " + p.toFixed(0) + "% (" + score + "/15)";
+    if(p >= 60) document.getElementById('nextBtn').style.display = "block";
+}
+</script>
+</body>
+</html>

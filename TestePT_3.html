@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Português 7º Ano - Teste 3</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fdf6e3; color: #586e75; padding: 20px; max-width: 800px; margin: auto; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #eee8d5; }
+        h1 { color: #d33682; border-bottom: 2px solid #d33682; padding-bottom: 10px; }
+        .question { margin-bottom: 20px; padding: 15px; border-left: 5px solid #d33682; background: #fffcf5; border-radius: 0 8px 8px 0; }
+        .question p { font-weight: bold; margin-bottom: 10px; color: #073642; }
+        input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #d33682; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; }
+        #result { margin-top: 20px; padding: 20px; display: none; border-radius: 8px; font-weight: bold; }
+        .wrong-ans { color: #dc322f; font-size: 0.9em; display: block; margin-top: 5px; }
+        .next-link { display: none; margin-top: 20px; text-align: center; background: #859900; padding: 15px; border-radius: 8px; }
+        .next-link a { color: white; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Teste 3: Funções Sintáticas</h1>
+    <form id="quizForm">
+        <!-- V/F -->
+        <div class="question" id="q1">
+            <p>1. Na frase "O João comeu a maçã", "a maçã" é o Sujeito. (V/F)</p>
+            <input type="text" id="ans1" placeholder="V ou F">
+        </div>
+        <div class="question" id="q2">
+            <p>2. "Ó Maria, anda cá!" - A palavra "Maria" é um Vocativo. (V/F)</p>
+            <input type="text" id="ans2" placeholder="V ou F">
+        </div>
+        <div class="question" id="q3">
+            <p>3. O predicado contém sempre um verbo. (V/F)</p>
+            <input type="text" id="ans3" placeholder="V ou F">
+        </div>
+
+        <!-- Escolha Múltipla -->
+        <div class="question" id="q4">
+            <p>4. "Nós compramos um livro". Qual a função de "um livro"?</p>
+            <input type="radio" name="q4" value="A"> Sujeito<br>
+            <input type="radio" name="q4" value="B"> Complemento Direto<br>
+            <input type="radio" name="q4" value="C"> Complemento Indireto
+        </div>
+        <div class="question" id="q5">
+            <p>5. "Eles telefonaram à avó". Qual a função de "à avó"?</p>
+            <input type="radio" name="q5" value="A"> Complemento Direto<br>
+            <input type="radio" name="q5" value="B"> Complemento Indireto<br>
+            <input type="radio" name="q5" value="C"> Modificador
+        </div>
+        <div class="question" id="q6">
+            <p>6. "Ontem choveu muito". Qual o tipo de sujeito?</p>
+            <input type="radio" name="q6" value="A"> Sujeito Composto<br>
+            <input type="radio" name="q6" value="B"> Sujeito Subentendido<br>
+            <input type="radio" name="q6" value="C"> Sujeito Inexistente
+        </div>
+
+        <!-- Resposta Rápida -->
+        <div class="question" id="q7">
+            <p>7. Qual o sujeito em: "Eu e o meu irmão fomos ao cinema."</p>
+            <input type="text" id="ans7">
+        </div>
+        <div class="question" id="q8">
+            <p>8. Identifica o Predicado em: "As flores crescem no jardim."</p>
+            <input type="text" id="ans8">
+        </div>
+        <div class="question" id="q9">
+            <p>9. Classifica o sujeito da frase: "Compraste o pão?"</p>
+            <input type="text" id="ans9" placeholder="Ex: Simples, Composto, Subentendido...">
+        </div>
+        <div class="question" id="q10">
+            <p>10. "A Maria é inteligente". Qual a função de "inteligente"?</p>
+            <input type="text" id="ans10" placeholder="Predicativo do...">
+        </div>
+        <div class="question" id="q11">
+            <p>11. Indica o Complemento Direto: "O gato apanhou um rato."</p>
+            <input type="text" id="ans11">
+        </div>
+        <div class="question" id="q12">
+            <p>12. "Eles vivem em Lisboa". Que função tem "em Lisboa"?</p>
+            <input type="text" id="ans12" placeholder="Complemento ...">
+        </div>
+        <div class="question" id="q13">
+            <p>13. O Vocativo deve ser isolado por que sinal de pontuação?</p>
+            <input type="text" id="ans13">
+        </div>
+        <div class="question" id="q14">
+            <p>14. No grupo nominal "O aluno estudioso", qual o núcleo?</p>
+            <input type="text" id="ans14">
+        </div>
+        <div class="question" id="q15">
+            <p>15. "Fez frio". Esta frase tem sujeito? (Sim/Não)</p>
+            <input type="text" id="ans15">
+        </div>
+
+        <button type="button" onclick="validate()">Validar Respostas</button>
+    </form>
+
+    <div id="result"></div>
+    <div id="nextBtn" class="next-link">
+        <a href="TestePT_4.html">Incrível! Passa para o Teste 4 (Texto Narrativo e Recursos Expressivos) →</a>
+    </div>
+</div>
+
+<script>
+function validate() {
+    let score = 0;
+    const correct = {
+        ans1:"F", ans2:"V", ans3:"V", q4:"B", q5:"B", q6:"C",
+        ans7:"eu e o meu irmão", ans8:"crescem no jardim", ans9:"subentendido", 
+        ans10:"predicativo do sujeito", ans11:"um rato", ans12:"obliquo", 
+        ans13:"vírgula", ans14:"aluno", ans15:"não"
+    };
+
+    document.querySelectorAll('.wrong-ans').forEach(e => e.remove());
+
+   .forEach(i => {
+        let val = document.getElementById('ans'+i).value.trim().toLowerCase();
+        let target = correct['ans'+i].toLowerCase();
+        // Lógica especial para o acento em oblíquo
+        if(i === 12 && (val === "obliquo" || val === "oblíquo")) val = "obliquo"; 
+        
+        if(val === target) score++;
+        else showErr('ans'+i, correct['ans'+i]);
+    });
+
+   .forEach(i => {
+        let val = document.querySelector('input[name="q'+i+'"]:checked')?.value;
+        if(val === correct['q'+i]) score++;
+        else showErr('q'+i, correct['q'+i]);
+    });
+
+    function showErr(id, right) {
+        let el = document.getElementById(id.includes('q') ? id : id.replace('ans','q'));
+        let span = document.createElement('span');
+        span.className = 'wrong-ans';
+        span.innerText = "Resposta certa: " + right;
+        el.appendChild(span);
+    }
+
+    let p = (score/15)*100;
+    let res = document.getElementById('result');
+    res.style.display = "block";
+    res.style.backgroundColor = p >= 60 ? "#d4edda" : "#f8d7da";
+    res.innerHTML = "Pontuação: " + p.toFixed(0) + "% (" + score + "/15)";
+    if(p >= 60) document.getElementById('nextBtn').style.display = "block";
+}
+</script>
+</body>
+</html>

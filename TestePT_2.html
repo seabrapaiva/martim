@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Português 7º Ano - Teste 2</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f4f8; color: #2c3e50; padding: 20px; max-width: 800px; margin: auto; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #8e44ad; border-bottom: 2px solid #8e44ad; padding-bottom: 10px; }
+        .question { margin-bottom: 20px; padding: 15px; border-left: 5px solid #8e44ad; background: #f9f9f9; border-radius: 0 8px 8px 0; }
+        .question p { font-weight: bold; margin-bottom: 10px; }
+        input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #8e44ad; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; }
+        #result { margin-top: 20px; padding: 20px; display: none; border-radius: 8px; font-weight: bold; }
+        .wrong-ans { color: #e74c3c; font-size: 0.9em; display: block; margin-top: 5px; }
+        .next-link { display: none; margin-top: 20px; text-align: center; background: #27ae60; padding: 15px; border-radius: 8px; }
+        .next-link a { color: white; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Teste 2: Verbos (Tempos e Modos)</h1>
+    <form id="quizForm">
+        <!-- V/F -->
+        <div class="question" id="q1">
+            <p>1. "Eu comi" está no Pretérito Perfeito do Indicativo. (V/F)</p>
+            <input type="text" id="ans1" placeholder="V ou F">
+        </div>
+        <div class="question" id="q2">
+            <p>2. O modo Conjuntivo exprime uma dúvida ou desejo. (V/F)</p>
+            <input type="text" id="ans2" placeholder="V ou F">
+        </div>
+        <div class="question" id="q3">
+            <p>3. "Cantaria" está no Futuro do Indicativo. (V/F)</p>
+            <input type="text" id="ans3" placeholder="V ou F">
+        </div>
+
+        <!-- Escolha Múltipla -->
+        <div class="question" id="q4">
+            <p>4. Em que tempo está "Nós estudávamos"?</p>
+            <input type="radio" name="q4" value="A"> P. Perfeito<br>
+            <input type="radio" name="q4" value="B"> P. Imperfeito<br>
+            <input type="radio" name="q4" value="C"> P. Mais-que-perfeito
+        </div>
+        <div class="question" id="q5">
+            <p>5. Qual é o modo da forma verbal "Canta tu!"?</p>
+            <input type="radio" name="q5" value="A"> Indicativo<br>
+            <input type="radio" name="q5" value="B"> Conjuntivo<br>
+            <input type="radio" name="q5" value="C"> Imperativo
+        </div>
+        <div class="question" id="q6">
+            <p>6. "Talvez eles venham". A forma verbal está no:</p>
+            <input type="radio" name="q6" value="A"> Presente do Conjuntivo<br>
+            <input type="radio" name="q6" value="B"> Presente do Indicativo<br>
+            <input type="radio" name="q6" value="C"> Condicional
+        </div>
+
+        <!-- Resposta Rápida -->
+        <div class="question" id="q7">
+            <p>7. Infinitivo do verbo "puseram":</p>
+            <input type="text" id="ans7">
+        </div>
+        <div class="question" id="q8">
+            <p>8. 1ª pessoa do plural do Condicional do verbo "fazer":</p>
+            <input type="text" id="ans8" placeholder="Nós...">
+        </div>
+        <div class="question" id="q9">
+            <p>9. Particípio passado de "escrever":</p>
+            <input type="text" id="ans9">
+        </div>
+        <div class="question" id="q10">
+            <p>10. Pessoa e número de "partiste":</p>
+            <input type="text" id="ans10" placeholder="Ex: 3ª sing">
+        </div>
+        <div class="question" id="q11">
+            <p>11. Gerúndio do verbo "sorrir":</p>
+            <input type="text" id="ans11">
+        </div>
+        <div class="question" id="q12">
+            <p>12. "Eu fizera" está no P. Mais-que-perfeito ________ (Simples ou Composto?)</p>
+            <input type="text" id="ans12">
+        </div>
+        <div class="question" id="q13">
+            <p>13. Conjugue "Eu (Trazer)" no P. Perfeito do Indicativo:</p>
+            <input type="text" id="ans13">
+        </div>
+        <div class="question" id="q14">
+            <p>14. Se eu ________ (Estudar), passaria. (P. Imperfeito do Conjuntivo)</p>
+            <input type="text" id="ans14">
+        </div>
+        <div class="question" id="q15">
+            <p>15. 3ª pessoa do plural do Futuro do Indicativo de "Ir":</p>
+            <input type="text" id="ans15">
+        </div>
+
+        <button type="button" onclick="validate()">Verificar Resultado</button>
+    </form>
+
+    <div id="result"></div>
+    <div id="nextBtn" class="next-link">
+        <a href="TestePT_3.html">Parabéns Martim! Clica aqui para próximo Teste</a>
+    </div>
+</div>
+
+<script>
+function validate() {
+    let score = 0;
+    const correct = {
+        ans1:"V", ans2:"V", ans3:"F", q4:"B", q5:"C", q6:"A",
+        ans7:"pôr", ans8:"faríamos", ans9:"escrito", ans10:"2ª sing",
+        ans11:"sorrindo", ans12:"simples", ans13:"trouxe", ans14:"estudasse", ans15:"irão"
+    };
+
+    document.querySelectorAll('.wrong-ans').forEach(e => e.remove());
+
+    [1,2,3,7,8,9,10,11,12,13,14,15].forEach(i => {
+        let val = document.getElementById('ans'+i).value.trim().toLowerCase();
+        if(val === correct['ans'+i].toLowerCase()) score++;
+        else showErr('ans'+i, correct['ans'+i]);
+    });
+
+    [4,5,6].forEach(i => {
+        let val = document.querySelector('input[name="q'+i+'"]:checked')?.value;
+        if(val === correct['q'+i]) score++;
+        else showErr('q'+i, correct['q'+i]);
+    });
+
+    function showErr(id, right) {
+        let el = document.getElementById(id.includes('q') ? id : id.replace('ans','q'));
+        let span = document.createElement('span');
+        span.className = 'wrong-ans';
+        span.innerText = "Resposta certa: " + right;
+        el.appendChild(span);
+    }
+
+    let p = (score/15)*100;
+    let res = document.getElementById('result');
+    res.style.display = "block";
+    res.style.backgroundColor = p >= 60 ? "#d4edda" : "#f8d7da";
+    res.innerHTML = "Pontuação: " + p.toFixed(0) + "% (" + score + "/15)";
+    if(p >= 60) document.getElementById('nextBtn').style.display = "block";
+}
+</script>
+</body>
+</html>
