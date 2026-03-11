@@ -1,0 +1,149 @@
+Nenhum selecionado 
+
+Saltar para o conteúdo
+A utilizar Gmail com leitores de ecrã
+in:draft 
+Conversas
+32% de 2 048 GB usados
+Termos de Utilização · Privacidade · Políticas de programa
+Última atividade da conta: há 3 minutos
+Detalhes
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Vacancies</title>
+		<style>
+		body { 
+			font-family: -apple-system, sans-serif; 
+			padding: 40px; background: #f4f4f9; 
+			}
+		.grid { 
+			display: grid; 
+			grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 15px;
+			}
+		.opt1 {
+			background: grey; 
+			}
+		.opt2 {
+			background: blue; 
+			}
+		.opt3 {
+			background: brown; 
+			}
+		.opt4 {
+			background: lightblue; 
+			}
+		.opt5 {
+			background: red; 
+			}
+		.btn {  
+			padding: 10px; 
+			text-align: center; 
+			border: 3px solid #ddd; 
+			border-radius: 15px; 
+			text-decoration: none; 
+			color: #333; 
+			font-weight: bold; 
+			transition: 0.2s;
+			font-size: 50px;
+			}
+		.btn:hover { 
+			border-color: #007bff;
+			background: #f0f7ff; 
+			transform: translateY(-2px); 
+		}
+		</style>
+	</head>
+	<body>
+		<div class="container1"><div id="link-grid1" class="grid"></div></div>
+		<hr style="border:0; border-top:1px solid #ccc; margin:15px 0;">
+		<div class="container2"><div id="link-grid2" class="grid"></div></div>
+		<hr style="border:0; border-top:1px solid #ccc; margin:15px 0;">
+		<div class="container3"><div id="link-grid3" class="grid"></div></div>
+		<hr style="border:0; border-top:1px solid #ccc; margin:15px 0;">
+		<div class="container4"><div id="link-grid4" class="grid"></div></div>
+		<hr style="border:0; border-top:1px solid #ccc; margin:15px 0;">
+		<div class="container5"><div id="link-grid5" class="grid"></div></div>
+		<script>
+			const links1 = [
+				{ name: "NATO", url: "https://nato.taleo.net/careersection/2/jobsearch.ftl" },
+				{ name: "EU", url: "https://eu-careers.europa.eu/en/temporary-agents-other-institutions-vacancies" },
+				{ name: "NETCompany", url: "https://netcompany.com/careers/vacancies/" },
+				{ name: "EID", url: "https://www.eid.pt/career-opportunities/" }
+			];
+			const container1 = document.getElementById('link-grid1');
+			
+			container1.innerHTML = links1.map(link => `
+				<a href="${link.url}" target="_blank" class="btn opt1">
+						${link.name}
+				</a>
+			`).join('');
+		</script>
+		<script>
+			const links2 = [
+				{ name: "BREVCO", url: "https://brevcoservices.zohorecruit.com/jobs/careers" },
+				{ name: "LA-Int", url: "https://www.lainternational.com/cm/job-search" },
+				{ name: "Vector", url: "https://www.vectorsynergy.com/job-board" },
+				{ name: "AUBAY", url: "https://www.aubay.pt/en/career" }
+			];
+
+			const container2 = document.getElementById('link-grid2');
+			
+			container2.innerHTML = links2.map(link => `
+				<a href="${link.url}" target="_blank" class="btn opt2">
+						${link.name}
+				</a>
+			`).join('');
+		</script>
+		<script>
+			const links3 = [						
+				{ name: "SWORD HEALTH", url: "https://swordhealth.com/company/careers" },
+				{ name: "IQVIA", url: "https://jobs.iqvia.com/en/jobs" }						
+			];
+
+			const container3 = document.getElementById('link-grid3');
+			
+			container3.innerHTML = links3.map(link => `
+				<a href="${link.url}" target="_blank" class="btn opt3">
+					${link.name}
+				</a>
+			`).join('');
+		</script>
+		<script>
+			const links4 = [
+				{ name: "NSPA", url: "https://nspa-nato.career.emply.com/vacancies" },
+				{ name: "EUSPA", url: "https://vacancies.euspa.europa.eu/Jobs/" },
+				{ name: "EEAS", url: "https://www.eeas.europa.eu/eeas/vacancies_en" },
+				{ name: "EDA", url: "https://vacancies.eda.europa.eu/" }
+			];
+			const container4 = document.getElementById('link-grid4');
+				container4.innerHTML = links4.map(link => `
+				<a href="${link.url}" target="_blank" class="btn opt4">
+					${link.name}
+				</a>
+			`).join('');
+		</script>
+		<script>
+			const links5 = [
+				{ name: "ver", url: "https://careers.celfocus.com/connect/dashboard" },
+				{ name: "Temp1", url: "https://www.era.europa.eu/vacancy/external-call-applications-posts-project-officers-agency-relevant-units" },
+				{ name: "Temp2", url: "https://www.era.europa.eu/sites/default/files/2026-02/call%20for%20applications%20era-ca-2026-001-ope.pdf?t=1772155115" }
+				{ name: "Temp3", url: "https://eu-careers.europa.eu/en/job-opportunities/dora-oversight-data-specialist/eba-dora-ca-53d-2026" },
+				{ name: "Temp4", url: "https://eu-careers.europa.eu/en/job-opportunities/project-officer-support-capabilities-planning/eda-2026-177a" },
+				{ name: "Temp5", url: "https://eu-careers.europa.eu/en/job-opportunities/senior-information-technology-officer-project-programme-management-profile-ad7/eu" },
+				{ name: "Temp6", url: "https://eu-careers.europa.eu/en/job-opportunities/specialist-ectc-expertise-stakeholder-management/europol-2026-ta-ad6-744" },
+				{ name: "Temp7", url: "https://eu-careers.europa.eu/en/job-opportunities/digital-euro-privacy-expert-data-protection-office/13413" },
+				{ name: "Temp8", url: "https://eu-careers.europa.eu/en/job-opportunities/senior-information-technology-officer-project-programme-management-profile-ad7/eu" }
+			];
+			const container5 = document.getElementById('link-grid5');
+				container5.innerHTML = links5.map(link => `
+				<a href="${link.url}" target="_blank" class="btn opt5">
+					${link.name}
+				</a>
+			`).join('');
+		</script>
+	</body>
+</html>
+04Mar-SiteVacancies.html
+A mostrar 04Mar-SiteVacancies.html.
